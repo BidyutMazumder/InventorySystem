@@ -6,5 +6,6 @@ public interface IProductRepository
     Task AddAsync(Product product);
     void Update(Product product);
     void Delete(Product product);
+    Task<bool> ExistsByBarcodeAsync(string barcode);
 }
 
