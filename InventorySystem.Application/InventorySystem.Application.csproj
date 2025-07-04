@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Contracts\Persistence\" />
-    <Folder Include="Features\Auth\Commands\LoginCommand\" />
+    <Folder Include="ValidationBehavior\" />
   </ItemGroup>
 
   <ItemGroup>

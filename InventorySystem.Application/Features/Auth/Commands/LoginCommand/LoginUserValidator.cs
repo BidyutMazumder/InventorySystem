@@ -1,8 +1,8 @@
-﻿namespace InventorySystem.Application.Features.Auth.Commands.RegisterCommand;
+﻿namespace InventorySystem.Application.Features.Auth.Commands.LoginCommand;
 
-public class RegisterUserValidator : AbstractValidator<RegisterUserRequestDto>
+public class LoginUserValidator: AbstractValidator<LoginUserRequestDto>
 {
-    public RegisterUserValidator()
+    public LoginUserValidator()
     {
         RuleFor(x => x.Username)
             .NotEmpty().WithMessage("Username is required.")

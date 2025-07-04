@@ -6,3 +6,7 @@ global using FluentValidation;
 global using MediatR;
 global using Microsoft.AspNetCore.Identity;
 //
+
+global using InventorySystem.Application.Models;
+global using InventorySystem.Application.Contracts.Infrastructure.TokenService;
+global using InventorySystem.Domain;

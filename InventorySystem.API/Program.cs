@@ -1,3 +1,4 @@
+using InventorySystem.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -47,6 +48,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 ServiceRegistration.ConfigureServiceRegistration(builder.Services);
 ApplicationServiceRegistration.ConfigureApplicationService(builder.Services);
+InfrastructureServiceRegistration.AddInfrastructureServices(builder.Services, builder.Configuration);
 var app = builder.Build();
 
 app.MapDefaultEndpoints();

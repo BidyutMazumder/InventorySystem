@@ -9,12 +9,7 @@ public static class ApplicationServiceRegistration
         {
             configuration.RegisterServicesFromAssembly(typeof(ApplicationServiceRegistration).Assembly);
         });
-
-        // Register all FluentValidation validators in this assembly
         service.AddValidatorsFromAssembly(typeof(ApplicationServiceRegistration).Assembly);
-
-        // Enable automatic validation
-        service.AddFluentValidationAutoValidation();
 
         return service;
     }
