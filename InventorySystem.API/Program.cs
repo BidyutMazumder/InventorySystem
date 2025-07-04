@@ -1,13 +1,23 @@
-using InventorySystem.Infrastructure;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.Console()
+    .WriteTo.File(
+        path: "Logs/log-.txt",
+        rollingInterval: RollingInterval.Day,
+        retainedFileCountLimit: 30,
+        outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 builder.AddServiceDefaults();
 
 // Add services to the container.
+builder.Services.AddDbContext<InventorySystemDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("InventorySystemConnectionString")));
+
 builder.Services.AddDbContext<InventorySystemAuthDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("InventorySystemAuthConnectionString")));
 
@@ -60,7 +70,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

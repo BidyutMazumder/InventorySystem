@@ -1,7 +1,4 @@
-﻿
-using InventorySystem.Application.Contracts.Persistence.Products;
-
-namespace InventorySystem.Application.Features.Products.Commands.AddProduct;
+﻿namespace InventorySystem.Application.Features.Products.Commands.AddProduct;
 
 public sealed record AddProductCommand(AddProductRequestDto request)
     : IRequest<Response<Unit>>;
@@ -10,12 +7,12 @@ public class AddProductCommandHandler
 {
     private readonly IProductRepository _productRepository;
     private readonly IValidator<AddProductRequestDto> _validator;
-    private readonly Mapper _mapper;
+    private readonly IMapper _mapper;
 
     public AddProductCommandHandler(
         IProductRepository productRepository, 
         IValidator<AddProductRequestDto> validator,
-        Mapper mapper)
+        IMapper mapper)
     {
         this._productRepository = productRepository;
         this._validator = validator;
@@ -42,8 +39,14 @@ public class AddProductCommandHandler
 
         var product = _mapper.Map<Product>(command.request);
 
-        await _productRepository.AddAsync(product);
+        bool productAdded = await _productRepository.AddAsync(product);
 
+        if (!productAdded)
+        {
+            return Response<Unit>.FailureResponse(
+                message: "Failed to add product",
+                statusCode: 500);
+        }
         return Response<Unit>.SuccessResponse(
             message: "Product created successfully",
             statusCode: 201,

@@ -12,3 +12,5 @@ global using InventorySystem.Application.Contracts.Infrastructure.TokenService;
 global using InventorySystem.Domain;
 global using AutoMapper;
 global using InventorySystem.Application.Features.Products.Commands.AddProduct;
+global using InventorySystem.Application.Contracts.Persistence.Products;
+global using InventorySystem.Application.Features.Products.Commands.UpdateProduct;

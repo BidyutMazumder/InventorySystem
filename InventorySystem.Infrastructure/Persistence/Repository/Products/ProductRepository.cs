@@ -17,7 +17,6 @@ public class ProductRepository : IProductRepository
 
         var sql = @"
             SELECT * FROM Products
-            WHERE IsDeleted = 0
             ORDER BY ProductId
             OFFSET @Offset ROWS
             FETCH NEXT @PageSize ROWS ONLY;";
@@ -29,27 +28,41 @@ public class ProductRepository : IProductRepository
     }
 
 
-    public async Task AddAsync(Product product)
+    public async Task<bool> AddAsync(Product product)
     {
         await _context.products.AddAsync(product);
+        return await _context.SaveChangesAsync() > 0;
     }
 
-    public void Update(Product product)
+    public async Task<bool> Update(Product product)
     {
         _context.products.Update(product);
+        return await _context.SaveChangesAsync() > 0;
     }
 
-    public void Delete(Product product)
+    public async Task<bool> Delete(Product product)
     {
         _context.products.Remove(product);
+        return await _context.SaveChangesAsync() > 0;
     }
     public async Task<bool> ExistsByBarcodeAsync(string barcode)
     {
-        const string sql = "SELECT COUNT(1) FROM Products WHERE Barcode = @Barcode AND IsDeleted = 0";
+        const string sql = "SELECT COUNT(1) FROM Products WHERE Barcode = @Barcode";
 
         using var connection = _dapperContext.CreateConnection();
         var count = await connection.ExecuteScalarAsync<int>(sql, new { Barcode = barcode });
 
         return count > 0;
+    }
+
+    public async Task<Product?> GetByIdAsync(int productId)
+    {
+        const string sql = @"
+        SELECT * FROM Products
+        WHERE ProductId = @ProductId";
+
+        using var connection = _dapperContext.CreateConnection();
+        var product = await connection.QuerySingleOrDefaultAsync<Product>(sql, new { ProductId = productId });
+        return product;
     }
 }
