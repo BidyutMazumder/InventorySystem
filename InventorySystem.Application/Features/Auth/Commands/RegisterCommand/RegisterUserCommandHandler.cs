@@ -7,26 +7,16 @@ public class RegisterUserCommandHandler
     : IRequestHandler<RegisterUserCommand, Response<Unit>>
 {
     private readonly UserManager<IdentityUser> _userManager;
-    private readonly IValidator<RegisterUserRequestDto> _validator;
 
     public RegisterUserCommandHandler(
-        UserManager<IdentityUser> userManager,
-        IValidator<RegisterUserRequestDto> validator)
+        UserManager<IdentityUser> userManager
+        )
     {
-        _userManager = userManager;
-        _validator = validator;
+        this._userManager = userManager;
     }
 
     public async Task<Response<Unit>> Handle(RegisterUserCommand command, CancellationToken cancellationToken)
     {
-        var validationResult = await _validator.ValidateAsync(command.request);
-        if (!validationResult.IsValid)
-        {
-            return Response<Unit>.FailureResponse(
-                message: "Validation failed",
-                errors: validationResult.Errors.Select(e => e.ErrorMessage).ToList(),
-                statusCode: 400);
-        }
 
         if (await _userManager.FindByNameAsync(command.request.Username) != null)
         {

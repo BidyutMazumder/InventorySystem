@@ -1,14 +1,14 @@
 ﻿namespace InventorySystem.Application.Features.Auth.Commands.RegisterCommand;
 
-public class RegisterUserValidator : AbstractValidator<RegisterUserRequestDto>
+public class RegisterUserValidator : AbstractValidator<RegisterUserCommand>
 {
     public RegisterUserValidator()
     {
-        RuleFor(x => x.Username)
+        RuleFor(x => x.request.Username)
             .NotEmpty().WithMessage("Username is required.")
             .MinimumLength(4).WithMessage("Username must be at least 4 characters long.");
 
-        RuleFor(x => x.Password)
+        RuleFor(x => x.request.Password)
             .NotEmpty().WithMessage("Password is required.")
             .MinimumLength(8).WithMessage("Password must be at least 8 characters long.")
             .Matches(@"[a-z]").WithMessage("Password must contain at least one lowercase letter.")

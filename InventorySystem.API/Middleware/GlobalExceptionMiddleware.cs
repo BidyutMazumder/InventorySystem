@@ -1,4 +1,6 @@
-﻿namespace InventorySystem.API.NewFolder;
+﻿using FluentValidation;
+
+namespace InventorySystem.API.NewFolder;
 public class GlobalExceptionMiddleware
 {
     private readonly RequestDelegate _next;
@@ -6,8 +8,8 @@ public class GlobalExceptionMiddleware
 
     public GlobalExceptionMiddleware(RequestDelegate next, IWebHostEnvironment env)
     {
-        this._next = next;
-        this._env = env;
+        _next = next;
+        _env = env;
     }
 
     public async Task InvokeAsync(HttpContext context)
@@ -15,6 +17,28 @@ public class GlobalExceptionMiddleware
         try
         {
             await _next(context);
+        }
+        catch (ValidationException ex)
+        {
+            Log.Warning(ex, "Validation error caught by global middleware.");
+
+            context.Response.ContentType = "application/json";
+            context.Response.StatusCode = 400;
+
+            var errors = ex.Errors.Select(e => e.ErrorMessage).ToList();
+
+            var response = Response<string>.FailureResponse(
+                message: "Validation failed",
+                errors: errors,
+                statusCode: 400
+            );
+
+            var json = JsonSerializer.Serialize(response, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+
+            await context.Response.WriteAsync(json);
         }
         catch (Exception ex)
         {

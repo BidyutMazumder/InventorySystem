@@ -60,7 +60,7 @@ ServiceRegistration.ConfigureServiceRegistration(builder.Services);
 ApplicationServiceRegistration.ConfigureApplicationService(builder.Services);
 InfrastructureServiceRegistration.AddInfrastructureServices(builder.Services, builder.Configuration);
 var app = builder.Build();
-
+app.UseMiddleware<GlobalExceptionMiddleware>();
 app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
@@ -70,7 +70,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

@@ -5,29 +5,18 @@ public sealed record LoginUserCommand(LoginUserRequestDto request)
 public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, Response<string?>>
 {
     private readonly ITokenService _tokenService;
-    private readonly IValidator<LoginUserRequestDto> _validator;
     private readonly UserManager<IdentityUser> _userManager;
 
     public LoginUserCommandHandler(
         ITokenService tokenService, 
-        IValidator<LoginUserRequestDto> validator,
         UserManager<IdentityUser> userManager
         )
     {
         this._tokenService = tokenService;
-        this._validator = validator;
         this._userManager = userManager;
     }
     public async Task<Response<string?>> Handle(LoginUserCommand command, CancellationToken cancellationToken)
     {
-        var validationResult = await _validator.ValidateAsync(command.request);
-        if (!validationResult.IsValid)
-        {
-            return Response<string?>.FailureResponse(
-                message: "Validation failed",
-                errors: validationResult.Errors.Select(e => e.ErrorMessage).ToList(),
-                statusCode: 400);
-        }
         var user = await _userManager.FindByNameAsync(command.request.Username);
         if(user is null)
         {
