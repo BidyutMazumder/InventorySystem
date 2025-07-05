@@ -17,7 +17,6 @@ public class CustomerRepository : ICustomerRepository
 
         const string sql = @"
         SELECT * FROM Customers
-        WHERE IsDeleted = 0
         ORDER BY CustomerId
         OFFSET @Offset ROWS
         FETCH NEXT @PageSize ROWS ONLY;";
@@ -35,14 +34,14 @@ public class CustomerRepository : ICustomerRepository
 
     public async Task<Customer?> GetByIdAsync(int id)
     {
-        const string sql = "SELECT * FROM Customers WHERE CustomerId = @Id AND IsDeleted = 0";
+        const string sql = "SELECT * FROM Customers WHERE CustomerId = @Id";
         using var connection = _dapper.CreateConnection();
         return await connection.QueryFirstOrDefaultAsync<Customer>(sql, new { Id = id });
     }
 
     public async Task<bool> ExistsAsync(int id)
     {
-        const string sql = "SELECT COUNT(1) FROM Customers WHERE CustomerId = @Id AND IsDeleted = 0";
+        const string sql = "SELECT COUNT(1) FROM Customers WHERE CustomerId = @Id";
         using var connection = _dapper.CreateConnection();
         var count = await connection.ExecuteScalarAsync<int>(sql, new { Id = id });
         return count > 0;

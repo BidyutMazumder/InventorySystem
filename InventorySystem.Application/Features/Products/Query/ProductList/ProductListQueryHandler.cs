@@ -11,8 +11,8 @@ public class ProductListQueryHandler : IRequestHandler<ProductListQuery, Respons
         IProductRepository productRepository,
         IMapper mapper)
     {
-        _productRepository = productRepository;
-        _mapper = mapper;
+        this._productRepository = productRepository;
+        this._mapper = mapper;
     }
 
     public async Task<Response<IEnumerable<ProductListResponseDto>>> Handle(ProductListQuery request, CancellationToken cancellationToken)
