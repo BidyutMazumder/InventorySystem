@@ -7,6 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Customers\Commands\DeleteCustomer\" />
+    <Folder Include="Features\Customers\Commands\UpdateCustomer\" />
+    <Folder Include="Features\Customers\Query\" />
     <Folder Include="ValidationBehavior\" />
   </ItemGroup>
 

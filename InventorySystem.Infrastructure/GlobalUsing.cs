@@ -15,3 +15,6 @@ global using InventorySystem.Application.Contracts.Persistence.Products;
 global using InventorySystem.Domain;
 global using InventorySystem.Infrastructure.Persistence.Context;
 global using Dapper;
+global using InventorySystem.Application.Contracts.Persistence.Customers;
+global using InventorySystem.Infrastructure.Persistence.Repository.Customers;
+global using InventorySystem.Infrastructure.Persistence.Repository.Products;

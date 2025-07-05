@@ -1,7 +1,4 @@
-﻿using InventorySystem.Infrastructure.Persistence.Context;
-using InventorySystem.Infrastructure.Persistence.Repository.Products;
-
-namespace InventorySystem.Infrastructure;
+﻿namespace InventorySystem.Infrastructure;
 
 public static class InfrastructureServiceRegistration
 {
@@ -10,6 +7,7 @@ public static class InfrastructureServiceRegistration
         services.AddTransient<ITokenService, TokenService>();
         services.AddScoped<DapperContext>();
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<ICustomerRepository, CustomerRepository>();
 
         return services;
     }

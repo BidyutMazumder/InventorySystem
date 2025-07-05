@@ -1,8 +1,4 @@
-﻿
-
-using InventorySystem.Application.Features.Products.Query.ProductList;
-
-namespace InventorySystem.Application.MappingProfiles;
+﻿namespace InventorySystem.Application.MappingProfiles;
 
 public class ProductProfile : Profile
 {
@@ -12,5 +8,7 @@ public class ProductProfile : Profile
         CreateMap<UpdateProductRequestDto, Product>()
             .ForMember(dest => dest.ProductId, opt => opt.Ignore());
         CreateMap<Product, ProductListResponseDto>();
+        CreateMap<AddCustomerRequestDto, Customer>()
+            .ForMember(dest => dest.CustomerId, opt => opt.Ignore());
     }
 }
