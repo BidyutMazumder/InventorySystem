@@ -1,6 +1,4 @@
-﻿using InventorySystem.Application.Features.Customers.Commands.UpdateCustomer;
-
-namespace InventorySystem.Application.MappingProfiles;
+﻿namespace InventorySystem.Application.MappingProfiles;
 
 public class ProductProfile : Profile
 {
@@ -15,5 +13,6 @@ public class ProductProfile : Profile
             .ForMember(dest => dest.CustomerId, opt => opt.Ignore());
         CreateMap<UpdateCustomerRequestDto, Customer>()
             .ForMember(dest => dest.CustomerId, opt => opt.Ignore());
+        CreateMap<Customer, CustomerListResponseDto>();
     }
 }

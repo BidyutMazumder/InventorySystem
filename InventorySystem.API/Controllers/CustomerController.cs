@@ -1,5 +1,6 @@
 ﻿using InventorySystem.Application.Features.Customers.Commands.AddCustomer;
 using InventorySystem.Application.Features.Customers.Commands.DeleteCustomer;
+using InventorySystem.Application.Features.Customers.Commands.UpdateCustomer;
 using InventorySystem.Application.Features.Customers.Query.CustomerList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,12 @@ public class CustomerController : ControllerBase
     public async Task<IActionResult> DeleteCustomer(DeleteCustomerRequestDto request)
     {
         var response = await _sender.Send(new DeleteCustomerCommand(request));
+        return StatusCode(response.StatusCode, response);
+    }
+    [HttpPut]
+    public async Task<IActionResult> UpdateCustomer(UpdateCustomerRequestDto request)
+    {
+        var response = await _sender.Send(new UpdateCustomerCommand(request));
         return StatusCode(response.StatusCode, response);
     }
     [HttpGet]
