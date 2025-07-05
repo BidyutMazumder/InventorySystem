@@ -7,8 +7,8 @@ public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand,
     private readonly IProductRepository _productRepository;
 
     public DeleteProductCommandHandler(
-        IProductRepository productRepository,
-        IValidator<DeleteProductRequestDto> validator)
+        IProductRepository productRepository
+        )
     {
         this._productRepository = productRepository;
     }
