@@ -1,7 +1,5 @@
 ﻿namespace InventorySystem.Application.Features.Products.Query.ProductList;
 
-using FluentValidation;
-
 public class ProductListValidator : AbstractValidator<ProductListQuery>
 {
     public ProductListValidator()

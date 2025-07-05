@@ -1,7 +1,4 @@
-﻿
-using InventorySystem.Application.Contracts.Persistence.Customers;
-
-namespace InventorySystem.Application.Features.Customers.Commands.AddCustomer;
+﻿namespace InventorySystem.Application.Features.Customers.Commands.AddCustomer;
 
 public sealed record AddCustomerCommand(AddCustomerRequestDto request)
     : IRequest<Response<Unit>>;

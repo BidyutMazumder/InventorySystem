@@ -11,3 +11,4 @@ global using InventorySystem.Application.Models;
 global using Serilog;
 global using System.Text.Json;
 global using InventorySystem.API.NewFolder;
+global using FluentValidation;

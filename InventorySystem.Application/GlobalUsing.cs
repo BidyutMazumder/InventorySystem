@@ -16,3 +16,4 @@ global using InventorySystem.Application.Contracts.Persistence.Products;
 global using InventorySystem.Application.Features.Products.Commands.UpdateProduct;
 global using InventorySystem.Application.Features.Customers.Commands.AddCustomer;
 global using InventorySystem.Application.Features.Products.Query.ProductList;
+global using InventorySystem.Application.Contracts.Persistence.Customers;

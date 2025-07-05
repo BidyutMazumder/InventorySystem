@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace InventorySystem.API.NewFolder;
+﻿namespace InventorySystem.API.NewFolder;
 public class GlobalExceptionMiddleware
 {
     private readonly RequestDelegate _next;
