@@ -17,6 +17,7 @@ public class ProductRepository : IProductRepository
 
         var sql = @"
             SELECT * FROM Products
+            WHERE IsDeleted = 0
             ORDER BY ProductId
             OFFSET @Offset ROWS
             FETCH NEXT @PageSize ROWS ONLY;";
@@ -42,12 +43,13 @@ public class ProductRepository : IProductRepository
 
     public async Task<bool> Delete(Product product)
     {
-        _context.products.Remove(product);
+        product.IsDeleted = true;
+        _context.products.Update(product);
         return await _context.SaveChangesAsync() > 0;
     }
     public async Task<bool> ExistsByBarcodeAsync(string barcode)
     {
-        const string sql = "SELECT COUNT(1) FROM Products WHERE Barcode = @Barcode";
+        const string sql = "SELECT COUNT(1) FROM Products WHERE Barcode = @Barcode And IsDeleted = 0";
 
         using var connection = _dapperContext.CreateConnection();
         var count = await connection.ExecuteScalarAsync<int>(sql, new { Barcode = barcode });
@@ -59,7 +61,7 @@ public class ProductRepository : IProductRepository
     {
         const string sql = @"
         SELECT * FROM Products
-        WHERE ProductId = @ProductId";
+        WHERE ProductId = @ProductId And IsDeleted = 0";
 
         using var connection = _dapperContext.CreateConnection();
         var product = await connection.QuerySingleOrDefaultAsync<Product>(sql, new { ProductId = productId });

@@ -10,5 +10,6 @@ public class Customer
     public string Phone { get; set; } = default!;
     public string Email { get; set; } = default!;
     public int LoyaltyPoints { get; set; }
+    public bool IsDeleted { get; set; } = false;
 }
 

@@ -1,4 +1,4 @@
-﻿namespace InventorySystem.Infrastructure.Infrastructure.TokenService;
+﻿namespace InventorySystem.Infrastructure.Infrastructure.Auth;
 
 public class TokenService : ITokenService
 {

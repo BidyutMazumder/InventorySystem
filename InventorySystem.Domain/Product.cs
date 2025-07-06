@@ -11,4 +11,5 @@ public class Product
     public decimal StockQty { get; set; }
     public string Category { get; set; } = default!;
     public bool Status { get; set; }
+    public bool IsDeleted { get; set; } = false;
 }
