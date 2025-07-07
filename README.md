@@ -1,28 +1,49 @@
 # InventorySystem
-Setup db:
-Ensure you have a MySQL server installed locally.
-1): Open Package Manager Console
-2): Select “InventorySystem.Infrastructure” as a default project
-3): Run “update-database -context InventorySystemDbContext”
-4): Run “update-database -context InventorySystemAuthDbContext”
-5): Run “SP_and_TypeTable” script
-6): Run “DamoData” script
+Setup Database:
 
-SetupApplication:
-1): Run provided Code 
-2): /api/Auth/Register/register 
-run this API with this request
+1) Ensure you have an MSSQL server installed and running locally.
 
+2) Open Package Manager Console in Visual Studio.
 
-{
-  "username": "admin",
-  "password": "admin123"
-}
-3): /api/Auth/Login/login
-Now run this api with this request and get the JWT token
-{
-  "username": "admin",
-  "password": "admin123"
-}
-baseurl “https://localhost:5032”
-Use this token and run all api 
+3) Set the Default Project to: InventorySystem.Infrastructure
+
+4) Run the following commands one by one:
+   - update-database -context InventorySystemDbContext
+   - update-database -context InventorySystemAuthDbContext
+
+5) Run the "SP_and_TypeTable.sql" script to create stored procedures and table types.
+
+6) Run the "DamoData.sql" script to insert sample data.
+
+-------------------------------------------
+
+Setup Application:
+
+1) Run the project from Visual Studio.
+
+2) Register a user by calling this API:
+   POST /api/Auth/Register/register
+   Request Body:
+   {
+     "username": "admin",
+     "password": "admin123"
+   }
+
+3) Login to get a JWT token:
+   POST /api/Auth/Login/login
+   Request Body:
+   {
+     "username": "admin",
+     "password": "admin123"
+   }
+
+4) Copy the token from the login response.
+
+5) Use this token in the Authorization header as:
+   Authorization: Bearer <your_token>
+
+6) Now you can access all protected APIs.
+
+Base URL:
+https://localhost:5032
+
