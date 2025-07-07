@@ -1,4 +1,6 @@
-﻿namespace InventorySystem.Infrastructure.Persistence.Context;
+﻿using InventorySystem.Domain.Products;
+
+namespace InventorySystem.Infrastructure.Persistence.Context;
 
 public class InventorySystemDbContext: DbContext
 {

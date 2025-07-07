@@ -19,8 +19,7 @@ public class UpdateProductCommandHandler
 
     public async Task<Response<Unit>> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
     {
-        var existingProducts = await _productRepository.GetAllAsync(1, int.MaxValue); 
-        var product = existingProducts.FirstOrDefault(p => p.ProductId == command.request.ProductId);
+        var product = await _productRepository.GetByIdAsync(command.request.ProductId);
 
         if (product == null)
         {

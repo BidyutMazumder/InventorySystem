@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using InventorySystem.Domain.Products;
+using System.ComponentModel.DataAnnotations;
 
 namespace InventorySystem.Domain.Sales;
 

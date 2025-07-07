@@ -1,4 +1,6 @@
-﻿namespace InventorySystem.Application.Features.Products.Commands.AddProduct;
+﻿using InventorySystem.Domain.Products;
+
+namespace InventorySystem.Application.Features.Products.Commands.AddProduct;
 
 public sealed record AddProductCommand(AddProductRequestDto request)
     : IRequest<Response<Unit>>;

@@ -1,4 +1,7 @@
-﻿namespace InventorySystem.Infrastructure.Persistence.Repository.Products;
+﻿using InventorySystem.Application.Features.Products.Query.ProductList;
+using InventorySystem.Domain.Products;
+
+namespace InventorySystem.Infrastructure.Persistence.Repository.Products;
 
 public class ProductRepository : IProductRepository
 {
@@ -11,22 +14,33 @@ public class ProductRepository : IProductRepository
         this._dapperContext = dapperContext;
     }
 
-    public async Task<IEnumerable<Product>> GetAllAsync(int page, int pageSize)
+    public async Task<IEnumerable<Product>> GetAllAsync(ProductSearch request)
     {
-        var offset = (page - 1) * pageSize;
+        var offset = (request.Page - 1) * request.PageSize;
 
         var sql = @"
             SELECT * FROM Products
             WHERE IsDeleted = 0
+                AND (@Name IS NULL OR Name LIKE '%' + @Name + '%')
+                AND (@Category IS NULL OR Category = @Category)
+                AND (@Status IS NULL OR Status = @Status)
             ORDER BY ProductId
             OFFSET @Offset ROWS
             FETCH NEXT @PageSize ROWS ONLY;";
 
         using var connection = _dapperContext.CreateConnection();
-        var result = await connection.QueryAsync<Product>(sql, new { Offset = offset, PageSize = pageSize });
+        var result = await connection.QueryAsync<Product>(sql, new
+        {
+            Name = request.Name,
+            Category = request.Category,
+            Status = request.Status,
+            Offset = offset,
+            PageSize = request.PageSize
+        });
 
         return result;
     }
+
 
 
     public async Task<bool> AddAsync(Product product)

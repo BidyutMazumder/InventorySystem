@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-namespace InventorySystem.Domain;
+namespace InventorySystem.Domain.Products;
 
 public class Product
 {

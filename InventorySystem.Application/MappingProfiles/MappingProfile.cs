@@ -1,13 +1,16 @@
-﻿namespace InventorySystem.Application.MappingProfiles;
+﻿using InventorySystem.Domain.Products;
 
-public class ProductProfile : Profile
+namespace InventorySystem.Application.MappingProfiles;
+
+public class MappingProfile : Profile
 {
-    public ProductProfile()
+    public MappingProfile()
     {
         CreateMap<AddProductRequestDto, Product>();
         CreateMap<UpdateProductRequestDto, Product>()
             .ForMember(dest => dest.ProductId, opt => opt.Ignore());
         CreateMap<Product, ProductListResponseDto>();
+        CreateMap<ProductListRequestDto, ProductSearch>();
 
         CreateMap<AddCustomerRequestDto, Customer>()
             .ForMember(dest => dest.CustomerId, opt => opt.Ignore());

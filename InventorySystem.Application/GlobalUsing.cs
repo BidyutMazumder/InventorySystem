@@ -19,3 +19,4 @@ global using InventorySystem.Application.Features.Products.Query.ProductList;
 global using InventorySystem.Application.Contracts.Persistence.Customers;
 global using InventorySystem.Application.Features.Customers.Commands.UpdateCustomer;
 global using InventorySystem.Application.Features.Customers.Query.CustomerList;
+global using InventorySystem.Domain.Products;

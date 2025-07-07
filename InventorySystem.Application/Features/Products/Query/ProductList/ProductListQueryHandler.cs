@@ -1,4 +1,6 @@
-﻿namespace InventorySystem.Application.Features.Products.Query.ProductList;
+﻿using InventorySystem.Domain.Products;
+
+namespace InventorySystem.Application.Features.Products.Query.ProductList;
 
 public sealed record ProductListQuery(ProductListRequestDto request)
     : IRequest<Response<IEnumerable<ProductListResponseDto>>>;
@@ -15,11 +17,10 @@ public class ProductListQueryHandler : IRequestHandler<ProductListQuery, Respons
         this._mapper = mapper;
     }
 
-    public async Task<Response<IEnumerable<ProductListResponseDto>>> Handle(ProductListQuery request, CancellationToken cancellationToken)
+    public async Task<Response<IEnumerable<ProductListResponseDto>>> Handle(ProductListQuery query, CancellationToken cancellationToken)
     {
-        var products = await _productRepository.GetAllAsync(
-            request.request.Page,
-            request.request.PageSize);
+        var productSearch = _mapper.Map<ProductSearch>(query.request);
+        var products = await _productRepository.GetAllAsync(productSearch);
 
         var mapped = _mapper.Map<IEnumerable<ProductListResponseDto>>(products);
 
