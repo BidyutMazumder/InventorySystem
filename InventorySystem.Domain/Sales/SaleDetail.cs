@@ -1,9 +1,9 @@
-﻿namespace InventorySystem.Domain;
+﻿namespace InventorySystem.Domain.Sales;
 
 public class SaleDetail
 {
     public int SaleDetailId { get; set; }
-    public int SaleId { get; set; }
+    public int SaleId { get; set; } = 0;
     public int ProductId { get; set; }
     public decimal Quantity { get; set; }
     public decimal Price { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace InventorySystem.Domain;
+﻿namespace InventorySystem.Domain.Sales;
 
 public class Sale
 {

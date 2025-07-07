@@ -1,9 +1,10 @@
-﻿namespace InventorySystem.Application.Contracts.Persistence.Sales;
+﻿using InventorySystem.Domain.Sales;
+
+namespace InventorySystem.Application.Contracts.Persistence.Sales;
 
 public interface ISaleRepository
 {
-    // Add a new sale along with sale details (products)
-    Task AddAsync(Sale sale);
+    Task<CreatedSales> AddSalesAsync(Sale sale);
 
     // Get sale by ID including details
     Task<Sale?> GetByIdAsync(int saleId);
