@@ -1,0 +1,1070 @@
+{
+	"info": {
+		"_postman_id": "ae371b36-56ce-4e56-9edd-a5c75f6b8910",
+		"name": "Inventory API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19621097"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register",
+							"item": [
+								{
+									"name": "register",
+									"item": [
+										{
+											"name": "/api/Auth/Register/register",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"et dolore sunt quis elit\",\n  \"password\": \"fugiat cupidatat magn\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Auth/Register/register",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Auth",
+														"Register",
+														"register"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"username\": \"et dolore sunt quis elit\",\n  \"password\": \"fugiat cupidatat magn\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/Auth/Register/register",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"Auth",
+																"Register",
+																"register"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Login",
+							"item": [
+								{
+									"name": "login",
+									"item": [
+										{
+											"name": "/api/Auth/Login/login",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Auth/Login/login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Auth",
+														"Login",
+														"login"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Authorization",
+																"value": "Bearer <token>",
+																"description": "Added as a part of security scheme: bearer"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"username\": \"et dolore sunt quis elit\",\n  \"password\": \"fugiat cupidatat magn\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/Auth/Login/login",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"Auth",
+																"Login",
+																"login"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Customer",
+					"item": [
+						{
+							"name": "AddCustomer",
+							"item": [
+								{
+									"name": "/api/Customer/AddCustomer",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"fullName\": \"dolor d\",\n  \"phone\": \"fugiat culpa adipisic\",\n  \"email\": \"anim\",\n  \"loyaltyPoints\": 24942082\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Customer/AddCustomer",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Customer",
+												"AddCustomer"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"fullName\": \"dolor d\",\n  \"phone\": \"fugiat culpa adipisic\",\n  \"email\": \"anim\",\n  \"loyaltyPoints\": 24942082\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Customer/AddCustomer",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Customer",
+														"AddCustomer"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "DeleteCustomer",
+							"item": [
+								{
+									"name": "/api/Customer/DeleteCustomer",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"customerId\": -13968292\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Customer/DeleteCustomer",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Customer",
+												"DeleteCustomer"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"customerId\": -13968292\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Customer/DeleteCustomer",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Customer",
+														"DeleteCustomer"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "UpdateCustomer",
+							"item": [
+								{
+									"name": "/api/Customer/UpdateCustomer",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"customerId\": 9263623,\n  \"fullName\": \"esse officia proident \",\n  \"phone\": \"id pariatur quis magna\",\n  \"email\": \"reprehenderit nisi quis culpa\",\n  \"loyaltyPoints\": -36607176\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Customer/UpdateCustomer",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Customer",
+												"UpdateCustomer"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"customerId\": 9263623,\n  \"fullName\": \"esse officia proident \",\n  \"phone\": \"id pariatur quis magna\",\n  \"email\": \"reprehenderit nisi quis culpa\",\n  \"loyaltyPoints\": -36607176\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Customer/UpdateCustomer",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Customer",
+														"UpdateCustomer"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetCustomersList",
+							"item": [
+								{
+									"name": "/api/Customer/GetCustomersList",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Customer/GetCustomersList?PageNumber=9590312&PageSize=9590312",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Customer",
+												"GetCustomersList"
+											],
+											"query": [
+												{
+													"key": "PageNumber",
+													"value": "9590312"
+												},
+												{
+													"key": "PageSize",
+													"value": "9590312"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Customer/GetCustomersList?PageNumber=9590312&PageSize=9590312",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Customer",
+														"GetCustomersList"
+													],
+													"query": [
+														{
+															"key": "PageNumber",
+															"value": "9590312"
+														},
+														{
+															"key": "PageSize",
+															"value": "9590312"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "AddProduct",
+							"item": [
+								{
+									"name": "/api/Product/AddProduct",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"cupidatat irure esse\",\n  \"barcode\": \"in ut\",\n  \"price\": 9729465.017604917,\n  \"stockQty\": -25817525.1305584,\n  \"category\": \"dolore\",\n  \"status\": true\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/AddProduct",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"AddProduct"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"cupidatat irure esse\",\n  \"barcode\": \"in ut\",\n  \"price\": 9729465.017604917,\n  \"stockQty\": -25817525.1305584,\n  \"category\": \"dolore\",\n  \"status\": true\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/AddProduct",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"AddProduct"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "UpdateProduct",
+							"item": [
+								{
+									"name": "/api/Product/UpdateProduct",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": 59550178,\n  \"name\": \"deserunt magna ut dolore sunt\",\n  \"barcode\": \"occaecat est\",\n  \"price\": 12194874.16502449,\n  \"stockQty\": 28478483.606812015,\n  \"category\": \"reprehenderit et non\",\n  \"status\": false\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/UpdateProduct",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"UpdateProduct"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": 59550178,\n  \"name\": \"deserunt magna ut dolore sunt\",\n  \"barcode\": \"occaecat est\",\n  \"price\": 12194874.16502449,\n  \"stockQty\": 28478483.606812015,\n  \"category\": \"reprehenderit et non\",\n  \"status\": false\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/UpdateProduct",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"UpdateProduct"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "DeleteProduct",
+							"item": [
+								{
+									"name": "/api/Product/DeleteProduct",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"productId\": 57146771\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/DeleteProduct",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"DeleteProduct"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"productId\": 57146771\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/DeleteProduct",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"DeleteProduct"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetProductsList",
+							"item": [
+								{
+									"name": "/api/Product/GetProductsList",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/GetProductsList?Name=aliquip id&Category=aliquip id&Status=true&Page=9590312&PageSize=9590312",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"GetProductsList"
+											],
+											"query": [
+												{
+													"key": "Name",
+													"value": "aliquip id"
+												},
+												{
+													"key": "Category",
+													"value": "aliquip id"
+												},
+												{
+													"key": "Status",
+													"value": "true"
+												},
+												{
+													"key": "Page",
+													"value": "9590312"
+												},
+												{
+													"key": "PageSize",
+													"value": "9590312"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Product/GetProductsList?Name=aliquip id&Category=aliquip id&Status=true&Page=9590312&PageSize=9590312",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Product",
+														"GetProductsList"
+													],
+													"query": [
+														{
+															"key": "Name",
+															"value": "aliquip id"
+														},
+														{
+															"key": "Category",
+															"value": "aliquip id"
+														},
+														{
+															"key": "Status",
+															"value": "true"
+														},
+														{
+															"key": "Page",
+															"value": "9590312"
+														},
+														{
+															"key": "PageSize",
+															"value": "9590312"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Sales",
+					"item": [
+						{
+							"name": "CreateSales",
+							"item": [
+								{
+									"name": "/api/Sales/CreateSales",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"customerId\": -93293829,\n  \"paidAmount\": 36838840.91526881,\n  \"saleDate\": \"1947-12-30T13:13:46.052Z\",\n  \"items\": [\n    {\n      \"productId\": -13970427,\n      \"quantity\": 48087713.80389595\n    },\n    {\n      \"productId\": 13453211,\n      \"quantity\": -76441091.08275399\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Sales/CreateSales",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Sales",
+												"CreateSales"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"customerId\": -93293829,\n  \"paidAmount\": 36838840.91526881,\n  \"saleDate\": \"1947-12-30T13:13:46.052Z\",\n  \"items\": [\n    {\n      \"productId\": -13970427,\n      \"quantity\": 48087713.80389595\n    },\n    {\n      \"productId\": 13453211,\n      \"quantity\": -76441091.08275399\n    }\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Sales/CreateSales",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Sales",
+														"CreateSales"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "GetSalesList",
+							"item": [
+								{
+									"name": "/api/Sales/GetSalesList",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Sales/GetSalesList?StartDate=2018-03-21T16:48:26.153Z&EndDate=2018-03-21T16:48:26.153Z",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Sales",
+												"GetSalesList"
+											],
+											"query": [
+												{
+													"key": "StartDate",
+													"value": "2018-03-21T16:48:26.153Z"
+												},
+												{
+													"key": "EndDate",
+													"value": "2018-03-21T16:48:26.153Z"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer <token>",
+														"description": "Added as a part of security scheme: bearer"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Sales/GetSalesList?StartDate=2018-03-21T16:48:26.153Z&EndDate=2018-03-21T16:48:26.153Z",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Sales",
+														"GetSalesList"
+													],
+													"query": [
+														{
+															"key": "StartDate",
+															"value": "2018-03-21T16:48:26.153Z"
+														},
+														{
+															"key": "EndDate",
+															"value": "2018-03-21T16:48:26.153Z"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
