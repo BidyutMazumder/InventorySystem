@@ -18,13 +18,13 @@ public class TokenService : ITokenService
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
-            _configuration["JWT:Issuer"],
-            _configuration["JWT:Audience"],
-            claims,
-            expires: DateTime.Now.AddMinutes(15),
+            issuer: _configuration["JWT:Issuer"],
+            audience: _configuration["JWT:Audience"],
+            claims: claims,
+            expires: DateTime.Now.AddMinutes(99999),
             signingCredentials: credentials
-            );
+        );
+
         return new JwtSecurityTokenHandler().WriteToken(token);
-        throw new NotImplementedException();
     }
 }

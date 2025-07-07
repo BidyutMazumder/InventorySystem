@@ -1,10 +1,12 @@
 ﻿using InventorySystem.Application.Features.Sales.Commands.CreateSales;
+using InventorySystem.Application.Features.Sales.Query.GetSalesSummary;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InventorySystem.API.Controllers;
-
+[Authorize]
 [Route("api/[controller]/[action]")]
 [ApiController]
 public class SalesController : ControllerBase
@@ -20,6 +22,13 @@ public class SalesController : ControllerBase
     public async Task<IActionResult> CreateSales(CreateSalesRequestDto request)
     {
         var response = await _sender.Send(new CreateSalesCommand(request));
+        return StatusCode(response.StatusCode, response);
+    }
+    [HttpGet]
+    [ResponseCache(Duration = 5)]
+    public async Task<IActionResult> GetSalesList([FromQuery] GetSalesSummaryRequestDto request)
+    {
+        var response = await _sender.Send(new GetSalesSummaryQuery(request));
         return StatusCode(response.StatusCode, response);
     }
 }

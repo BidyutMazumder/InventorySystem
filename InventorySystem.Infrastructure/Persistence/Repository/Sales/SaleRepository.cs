@@ -1,4 +1,5 @@
 ﻿using InventorySystem.Application.Contracts.Persistence.Sales;
+using InventorySystem.Application.Features.Sales.Query.GetSalesSummary;
 
 namespace InventorySystem.Infrastructure.Persistence.Repository.Sales;
 
@@ -34,6 +35,28 @@ public class SaleRepository : ISaleRepository
             "CreateSaleTransaction",
             parameters,
             commandType: CommandType.StoredProcedure);
+
+        return result;
+    }
+    public async Task<SalesSummary?> GetSalesSummaryAsync(DateRange dateRange)
+    {
+        const string sql = @"
+            SELECT 
+                COUNT(*) AS NumberOfTransactions,
+                ISNULL(SUM(TotalAmount), 0) AS TotalSales,
+                ISNULL(SUM(PaidAmount), 0) AS TotalRevenue
+            FROM Sales
+            WHERE cast (SaleDate as date) 
+            BETWEEN cast(@StartDate as date) AND cast(@EndDate as date) 
+            AND IsDeleted = 0;
+        ";
+
+        using var connection = _context.CreateConnection();
+        var result = await connection.QuerySingleOrDefaultAsync<SalesSummary>(sql, new
+        {
+            StartDate = dateRange.StartDate,
+            EndDate = dateRange.EndDate
+        });
 
         return result;
     }
