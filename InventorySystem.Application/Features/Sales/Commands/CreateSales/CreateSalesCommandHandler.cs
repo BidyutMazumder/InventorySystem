@@ -5,9 +5,9 @@ using System.Data;
 namespace InventorySystem.Application.Features.Sales.Commands.CreateSales;
 
 public sealed record CreateSalesCommand(CreateSalesRequestDto request) 
-    : IRequest<Response<Unit>>;
+    : IRequest<Response<CraeteSalesResponseDto>>;
 
-public class CreateSalesCommandHandler : IRequestHandler<CreateSalesCommand, Response<Unit>>
+public class CreateSalesCommandHandler : IRequestHandler<CreateSalesCommand, Response<CraeteSalesResponseDto>>
 {
     private static readonly SemaphoreSlim _semaphore = new(3);
     private readonly ISaleRepository _saleRepository;
@@ -17,10 +17,10 @@ public class CreateSalesCommandHandler : IRequestHandler<CreateSalesCommand, Res
         this._saleRepository = saleRepository;
     }
 
-    public async Task<Response<Unit>> Handle(CreateSalesCommand command, CancellationToken cancellationToken)
+    public async Task<Response<CraeteSalesResponseDto>> Handle(CreateSalesCommand command, CancellationToken cancellationToken)
     {
         if (!await _semaphore.WaitAsync(0, cancellationToken))
-            return Response<Unit>.FailureResponse(
+            return Response<CraeteSalesResponseDto>.FailureResponse(
                 message:"Too many concurrent sales.", 
                 statusCode:429);
         try
@@ -37,16 +37,28 @@ public class CreateSalesCommandHandler : IRequestHandler<CreateSalesCommand, Res
                 {
                     ProductId = item.ProductId,
                     Quantity = item.Quantity,
-                    // ✅ Price will be determined in DB or repository (set to 0 here)
                     Price = 0
                 }).ToList()
             };
-            //map dto to entity
 
             await Task.Delay(3000);
-            //var sale = await _saleRepository.AddSalesAsync();
+            var response = await _saleRepository.AddSalesAsync(sale);
+     
+            if (!response.IsSuccessful)
+            {
+                return Response<CraeteSalesResponseDto>.FailureResponse(
+                    message: response.Message,
+                    statusCode: 400);
+            }
 
-            
+            var responseDto = new CraeteSalesResponseDto(
+                response.DueAmount,
+                response.SaleId
+            );
+            return Response<CraeteSalesResponseDto>.SuccessResponse(
+                message: "Sales Created Successfully",
+                statusCode: 200,
+                data: responseDto);
         }
         finally
         {
