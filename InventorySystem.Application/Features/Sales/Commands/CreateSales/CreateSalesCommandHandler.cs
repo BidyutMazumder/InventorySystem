@@ -40,8 +40,6 @@ public class CreateSalesCommandHandler : IRequestHandler<CreateSalesCommand, Res
                     Price = 0
                 }).ToList()
             };
-
-            await Task.Delay(3000);
             var response = await _saleRepository.AddSalesAsync(sale);
      
             if (!response.IsSuccessful)

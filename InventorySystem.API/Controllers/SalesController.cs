@@ -22,6 +22,7 @@ public class SalesController : ControllerBase
     public async Task<IActionResult> CreateSales(CreateSalesRequestDto request)
     {
         var response = await _sender.Send(new CreateSalesCommand(request));
+        await Task.Delay(3000);
         return StatusCode(response.StatusCode, response);
     }
     [HttpGet]
