@@ -1,6 +1,4 @@
-﻿using Microsoft.OpenApi.Models;
-
-namespace InventorySystem.API.ServiceRegistration;
+﻿namespace InventorySystem.API.ServiceRegistration;
 
 public static class ServiceRegistration
 {

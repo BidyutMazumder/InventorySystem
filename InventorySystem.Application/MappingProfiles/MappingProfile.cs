@@ -1,6 +1,4 @@
-﻿using InventorySystem.Domain.Products;
-
-namespace InventorySystem.Application.MappingProfiles;
+﻿namespace InventorySystem.Application.MappingProfiles;
 
 public class MappingProfile : Profile
 {

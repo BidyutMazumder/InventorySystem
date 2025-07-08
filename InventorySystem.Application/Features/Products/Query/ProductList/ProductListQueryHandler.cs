@@ -1,6 +1,4 @@
-﻿using InventorySystem.Domain.Products;
-
-namespace InventorySystem.Application.Features.Products.Query.ProductList;
+﻿namespace InventorySystem.Application.Features.Products.Query.ProductList;
 
 public sealed record ProductListQuery(ProductListRequestDto request)
     : IRequest<Response<IEnumerable<ProductListResponseDto>>>;

@@ -1,7 +1,5 @@
 ﻿namespace InventorySystem.Application.Features.Customers.Commands.AddCustomer;
 
-using FluentValidation;
-
 public class AddCustomerValidator : AbstractValidator<AddCustomerCommand>
 {
     public AddCustomerValidator()

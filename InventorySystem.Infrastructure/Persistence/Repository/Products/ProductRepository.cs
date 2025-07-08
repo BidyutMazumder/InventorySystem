@@ -1,7 +1,4 @@
-﻿using InventorySystem.Application.Features.Products.Query.ProductList;
-using InventorySystem.Domain.Products;
-
-namespace InventorySystem.Infrastructure.Persistence.Repository.Products;
+﻿namespace InventorySystem.Infrastructure.Persistence.Repository.Products;
 
 public class ProductRepository : IProductRepository
 {

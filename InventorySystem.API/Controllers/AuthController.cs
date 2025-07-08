@@ -1,10 +1,4 @@
-﻿using InventorySystem.Application.Features.Auth.Commands.LoginCommand;
-using InventorySystem.Application.Features.Auth.Commands.RegisterCommand;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace InventorySystem.API.Controllers;
+﻿namespace InventorySystem.API.Controllers;
 
 [Route("api/[controller]/[action]")]
 [ApiController]

@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace InventorySystem.Application.Features.Customers.Commands.DeleteCustomer;
+﻿namespace InventorySystem.Application.Features.Customers.Commands.DeleteCustomer;
 
 public sealed record DeleteCustomerCommand(DeleteCustomerRequestDto request)
     :IRequest<Response<Unit>>;

@@ -1,7 +1,4 @@
-﻿using InventorySystem.Application.Features.Auth.Commands.RegisterCommand;
-using InventorySystem.Application.ValidationBehavior;
-
-namespace InventorySystem.Application;
+﻿namespace InventorySystem.Application;
 public static class ApplicationServiceRegistration
 {
     public static IServiceCollection ConfigureApplicationService(this IServiceCollection service)

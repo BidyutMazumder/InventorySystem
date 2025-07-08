@@ -1,12 +1,4 @@
-﻿using InventorySystem.Application.Features.Products.Commands.AddProduct;
-using InventorySystem.Application.Features.Products.Commands.DeleteProduct;
-using InventorySystem.Application.Features.Products.Commands.UpdateProduct;
-using InventorySystem.Application.Features.Products.Query.ProductList;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-
-namespace InventorySystem.API.Controllers;
+﻿namespace InventorySystem.API.Controllers;
 [Authorize]
 [Route("api/[controller]/[action]")]
 [ApiController]

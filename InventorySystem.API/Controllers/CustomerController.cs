@@ -1,12 +1,4 @@
-﻿using InventorySystem.Application.Features.Customers.Commands.AddCustomer;
-using InventorySystem.Application.Features.Customers.Commands.DeleteCustomer;
-using InventorySystem.Application.Features.Customers.Commands.UpdateCustomer;
-using InventorySystem.Application.Features.Customers.Query.CustomerList;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-
-namespace InventorySystem.API.Controllers;
+﻿namespace InventorySystem.API.Controllers;
 [Authorize]
 [Route("api/[controller]/[action]")]
 [ApiController]

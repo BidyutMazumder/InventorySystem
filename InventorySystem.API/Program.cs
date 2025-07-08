@@ -13,6 +13,7 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 builder.AddServiceDefaults();
+
 // Custom service registrations 
 ServiceRegistration.ConfigureServiceRegistration(builder.Services);
 ApplicationServiceRegistration.ConfigureApplicationService(builder.Services);

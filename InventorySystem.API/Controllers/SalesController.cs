@@ -1,11 +1,4 @@
-﻿using InventorySystem.Application.Features.Sales.Commands.CreateSales;
-using InventorySystem.Application.Features.Sales.Query.GetSalesSummary;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
-namespace InventorySystem.API.Controllers;
+﻿namespace InventorySystem.API.Controllers;
 [Authorize]
 [Route("api/[controller]/[action]")]
 [ApiController]

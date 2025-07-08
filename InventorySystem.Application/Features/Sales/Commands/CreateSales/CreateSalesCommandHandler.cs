@@ -1,8 +1,4 @@
-﻿using InventorySystem.Application.Contracts.Persistence.Sales;
-using InventorySystem.Domain.Sales;
-using System.Data;
-
-namespace InventorySystem.Application.Features.Sales.Commands.CreateSales;
+﻿namespace InventorySystem.Application.Features.Sales.Commands.CreateSales;
 
 public sealed record CreateSalesCommand(CreateSalesRequestDto request) 
     : IRequest<Response<CraeteSalesResponseDto>>;

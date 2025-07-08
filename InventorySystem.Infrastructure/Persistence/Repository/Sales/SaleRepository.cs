@@ -1,7 +1,4 @@
-﻿using InventorySystem.Application.Contracts.Persistence.Sales;
-using InventorySystem.Application.Features.Sales.Query.GetSalesSummary;
-
-namespace InventorySystem.Infrastructure.Persistence.Repository.Sales;
+﻿namespace InventorySystem.Infrastructure.Persistence.Repository.Sales;
 
 public class SaleRepository : ISaleRepository
 {

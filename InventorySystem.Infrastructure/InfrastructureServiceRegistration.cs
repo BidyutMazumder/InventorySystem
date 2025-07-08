@@ -1,8 +1,4 @@
-﻿using InventorySystem.Application.Contracts.Persistence.Sales;
-using InventorySystem.Infrastructure.Persistence.Repository.Sales;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-
-namespace InventorySystem.Infrastructure;
+﻿namespace InventorySystem.Infrastructure;
 
 public static class InfrastructureServiceRegistration
 {

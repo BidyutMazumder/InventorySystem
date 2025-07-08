@@ -1,4 +1,4 @@
-﻿namespace InventorySystem.API.NewFolder;
+﻿namespace InventorySystem.API.Middleware;
 public class GlobalExceptionMiddleware
 {
     private readonly RequestDelegate _next;

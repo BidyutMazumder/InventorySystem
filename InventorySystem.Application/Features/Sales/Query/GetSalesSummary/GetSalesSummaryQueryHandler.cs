@@ -1,7 +1,4 @@
-﻿using InventorySystem.Application.Contracts.Persistence.Sales;
-using InventorySystem.Domain.Sales;
-
-namespace InventorySystem.Application.Features.Sales.Query.GetSalesSummary;
+﻿namespace InventorySystem.Application.Features.Sales.Query.GetSalesSummary;
 
 public sealed record GetSalesSummaryQuery(GetSalesSummaryRequestDto request)
     : IRequest<Response<GetSalesSummaryResponseDto>>;
